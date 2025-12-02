@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" routerLink="/">
+      🏠 عقارات مصر
+    </a>
+
+    <!-- Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+      <!-- Left Links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/">الرئيسية</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/properties">العقارات</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/favorites">المفضلة ❤️</a>
+        </li>
+
+        <!-- يظهر للبائع فقط -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/add-property">إضافة عقار</a>
+        </li>
+      </ul>
+
+      <!-- Right Buttons -->
+      <div class="d-flex gap-2">
+
+        <!-- لو المستخدم مش مسجل -->
+        <a routerLink="/login" routerLinkActive="active" class="btn btn-outline-light btn-sm">
+          تسجيل الدخول
+        </a>
+
+        <a routerLink="/Register" routerLinkActive="active" class="btn btn-warning btn-sm">
+          إنشاء حساب
+        </a>
+
+        <!-- لو المستخدم مسجل -->
+        <!--
+        <div class="dropdown">
+          <button class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+            حسابي
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" routerLink="/profile">الملف الشخصي</a></li>
+            <li><a class="dropdown-item" routerLink="/my-properties">عقاراتي</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item text-danger" (click)="logout()">تسجيل الخروج</button></li>
+          </ul>
+        </div>
+        -->
+
+      </div>
+    </div>
+  </div>
+</nav>

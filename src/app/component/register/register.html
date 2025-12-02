@@ -1,0 +1,32 @@
+<div class="register-container">
+  <form class="auth-card" (ngSubmit)="onSubmit()">
+    <h2>إنشاء حساب جديد</h2>
+
+    <div class="form-group">
+      <label>الاسم</label>
+      <input type="text" [formControl]="registerForm.controls.name" placeholder="ادخل الاسم">
+    </div>
+
+    <div class="form-group">
+      <label>البريد الإلكتروني</label>
+      <input type="email" [formControl]="registerForm.controls.email" placeholder="ادخل البريد الإلكتروني">
+    </div>
+
+    <div class="form-group">
+      <label>كلمة المرور</label>
+      <input type="password" [formControl]="registerForm.controls.password" placeholder="ادخل كلمة المرور">
+    </div>
+
+    <div class="form-group">
+      <label>الدور</label>
+      <select [formControl]="registerForm.controls.role">
+        <option value="buyer">مشتري</option>
+        <option value="seller">بائع</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">تسجيل</button>
+
+    <p *ngIf="error()">{{ error() }}</p>
+  </form>
+</div>
