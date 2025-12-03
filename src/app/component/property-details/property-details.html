@@ -1,1 +1,48 @@
-<p>property-details works!</p>
+<div class="container my-5">
+  <h2 class="text-center fw-bold mb-4">🏠 تفاصيل العقار</h2>
+
+  <div *ngIf="error" class="alert alert-danger text-center">
+    {{ error }}
+  </div>
+
+  <div *ngIf="property" class="card details-card shadow-lg border-0 rounded-4 overflow-hidden">
+    <div class="row g-0">
+      <!-- Image -->
+      <div class="col-md-6">
+        <img [src]="property.image" class="img-fluid h-100 w-100 object-fit-cover" alt="property">
+      </div>
+
+      <!-- Details -->
+      <div class="col-md-6 p-4">
+        <h3 class="fw-bold mb-3">{{ property.title }}</h3>
+
+        <p class="text-muted mb-3">{{ property.description }}</p>
+
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2"><strong>📍 الموقع:</strong> {{ property.location }}</li>
+          <li class="mb-2">
+            <strong>💰 السعر:</strong>
+            <span class="text-success fw-bold fs-5">{{ property.price }}</span>
+          </li>
+          <li>
+            <strong>🏷️ النوع:</strong>
+            <span class="badge bg-primary ms-2">{{ property.type === 'sale' ? 'للبيع' : 'للإيجار' }}</span>
+          </li>
+        </ul>
+
+        <div class="d-flex gap-3">
+          <button class="btn btn-success px-4">📞 تواصل الآن</button>
+          <a routerLink="/properties" routerLinkActive="active" class="btn btn-outline-secondary px-4">🔙 رجوع</a>
+
+          <!-- زر المفضلة -->
+          <button 
+            class="btn" 
+            [ngClass]="isFav ? 'btn-danger' : 'btn-outline-danger'" 
+            (click)="toggleFavourite()">
+            {{ isFav ? '❤️ مضافة للمفضلة' : '🤍 إضافة للمفضلة' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,8 @@ export class Login {
     const success = this._authServe.login(username, password);
 
     if (success) {
-      this.router.navigate(['/profile']); 
+      this.error = '';
+      this.router.navigate(['/']); // روح للصفحة الرئيسية
     } else {
       this.error = 'الإيميل أو كلمة المرور غير صحيحة'; 
     }

@@ -8,6 +8,7 @@ import { Profile } from './component/profile/profile';
 import Properties from './component/properties/properties';
 import { PropertyDetails } from './component/property-details/property-details';
 import { Register } from './component/register/register';
+import { Favourit } from './component/favourit/favourit';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/properties', pathMatch: 'full' },
@@ -17,7 +18,9 @@ export const routes: Routes = [
     { path: 'message', component: Message, title: 'message Page'},
     { path: 'myProperties', component: MyProperties, title: ' My properties' },
     { path: 'profile', component: Profile, title: ' My profile' },
+    { path: 'Favourit' , component:Favourit , title: 'Favourit Property'},
     { path: 'properties', component: Properties, title: ' Properties' },
-    { path: 'propertyDetails', component: PropertyDetails, title: ' Property Details' },
+    { path: 'propertyDetails/:id', component: PropertyDetails, title: ' Property Details' },
+
     { path: 'Register', component: Register, title: 'Register' },
 ];

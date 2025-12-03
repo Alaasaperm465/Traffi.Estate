@@ -1,1 +1,32 @@
-<p>favourit works!</p>
+<div class="container my-5">
+  <h2 class="text-center mb-4">❤️ عقاراتك المفضلة</h2>
+
+  <!-- رسالة الخطأ -->
+  <div *ngIf="error" class="alert alert-warning text-center">
+    {{ error }}
+  </div>
+
+  <div *ngIf="favourites.length === 0 && !error" class="alert alert-info text-center">
+    لا يوجد عقارات مفضلة حتى الآن
+  </div>
+
+  <div *ngIf="favourites.length > 0" class="row">
+    <div class="col-md-4 mb-3" *ngFor="let prop of favourites">
+      <div class="card h-100">
+        <img [src]="prop.image" class="card-img-top" alt="property">
+        <div class="card-body">
+          <h5 class="card-title">{{ prop.title }}</h5>
+          <p class="card-text">{{ prop.location }}</p>
+          <p class="card-text text-success">{{ prop.price }}</p>
+          
+          <!-- زر إزالة من المفضلة -->
+          <button 
+            class="btn btn-danger btn-sm"
+            (click)="removeFromFavourites(prop.id)">
+            ❌ إزالة من المفضلة
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
