@@ -1,1 +1,216 @@
-<p>add-property works!</p>
+<div class="form-card-body">
+  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" class="property-form">
+    
+    <div class="form-section">
+      <h5 class="section-title"><i class="fas fa-info-circle"></i> المعلومات الأساسية</h5>
+
+      <div class="form-group">
+        <label for="propertyTitle">عنوان العقار</label>
+        <div class="input-wrapper">
+          <i class="fas fa-heading input-icon"></i>
+          <input 
+            formControlName="title"
+            class="form-input" 
+            id="propertyTitle" 
+            placeholder="عنوان العقار"
+            [ngClass]="{'is-invalid': propertyForm.get('title')?.invalid && propertyForm.get('title')?.touched}"
+          />
+        </div>
+        <div *ngIf="propertyForm.get('title')?.invalid && propertyForm.get('title')?.touched" class="invalid-feedback">
+          العنوان مطلوب
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="propertyDescription">وصف العقار</label>
+        <div class="input-wrapper">
+          <i class="fas fa-align-left input-icon"></i>
+          <textarea 
+            formControlName="description"
+            class="form-input" 
+            id="propertyDescription" 
+            placeholder="وصف العقار"
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h5 class="section-title"><i class="fas fa-list-alt"></i> تفاصيل العقار</h5>
+      
+      <div class="row-grid">
+        <div class="form-group">
+          <label for="propertyPrice">السعر</label>
+          <div class="input-wrapper">
+            <i class="fas fa-money-bill-wave input-icon"></i>
+            <input 
+              formControlName="price"
+              type="number" 
+              min="0"
+              class="form-input" 
+              id="propertyPrice" 
+              placeholder="السعر"
+            />
+          </div>
+          <div *ngIf="propertyForm.get('price')?.invalid && propertyForm.get('price')?.touched" class="invalid-feedback">
+            السعر مطلوب ويجب أن يكون رقم موجب
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyArea">المساحة (م²)</label>
+          <div class="input-wrapper">
+            <i class="fas fa-arrows-alt input-icon"></i>
+            <input 
+              formControlName="areaSpace"
+              type="number" 
+              min="0"
+              class="form-input" 
+              id="propertyArea" 
+              placeholder="المساحة"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyRooms">عدد الغرف</label>
+          <div class="input-wrapper">
+            <i class="fas fa-door-open input-icon"></i>
+            <input 
+              formControlName="rooms"
+              type="number" 
+              min="0"
+              class="form-input" 
+              id="propertyRooms" 
+              placeholder="عدد الغرف"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyBathrooms">عدد الحمامات</label>
+          <div class="input-wrapper">
+            <i class="fas fa-bath input-icon"></i>
+            <input 
+              formControlName="bathrooms"
+              type="number" 
+              min="0"
+              class="form-input" 
+              id="propertyBathrooms" 
+              placeholder="عدد الحمامات"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="propertyLocation">الموقع</label>
+        <div class="input-wrapper">
+          <i class="fas fa-map-marker-alt input-icon"></i>
+          <input 
+            formControlName="location"
+            class="form-input" 
+            id="propertyLocation" 
+            placeholder="الموقع"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h5 class="section-title"><i class="fas fa-tags"></i> نوع العقار والحالة</h5>
+      
+      <div class="row-grid">
+        <div class="form-group">
+          <label for="propertyType">نوع العقار</label>
+          <div class="input-wrapper select-wrapper">
+            <i class="fas fa-building input-icon"></i>
+            <select 
+              formControlName="propertyType"
+              class="form-select" 
+              id="propertyType"
+            >
+              <option value="">-- اختر النوع --</option>
+              <option value="Apartment">شقة</option>
+              <option value="Villa">فيلا</option>
+              <option value="House">منزل</option>
+              <option value="Land">أرض</option>
+            </select>
+          </div>
+          <div *ngIf="propertyForm.get('propertyType')?.invalid && propertyForm.get('propertyType')?.touched" class="invalid-feedback">
+            نوع العقار مطلوب
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="finishingLevel">مستوى التشطيب</label>
+          <div class="input-wrapper select-wrapper">
+            <i class="fas fa-paint-roller input-icon"></i>
+            <select 
+              formControlName="finishingLevel"
+              class="form-select" 
+              id="finishingLevel"
+            >
+              <option value="">-- اختر التشطيب --</option>
+              <option value="Luxury">فاخر</option>
+              <option value="Standard">عادي</option>
+              <option value="Basic">أساسي</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyPurpose">الغرض من العقار</label>
+          <div class="input-wrapper select-wrapper">
+            <i class="fas fa-bullseye input-icon"></i>
+            <select 
+              formControlName="purpose"
+              class="form-select" 
+              id="propertyPurpose"
+            >
+              <option value="">-- اختر الغرض --</option>
+              <option value="Sale">بيع</option>
+              <option value="Rent">إيجار</option>
+            </select>
+          </div>
+          <div *ngIf="propertyForm.get('purpose')?.invalid && propertyForm.get('purpose')?.touched" class="invalid-feedback">
+            الغرض من العقار مطلوب
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyStatus">حالة العقار</label>
+          <div class="input-wrapper select-wrapper">
+            <i class="fas fa-flag input-icon"></i>
+            <select 
+              formControlName="status"
+              class="form-select" 
+              id="propertyStatus"
+            >
+              <option value="">-- اختر الحالة --</option>
+              <option value="Available">متاح</option>
+              <option value="Sold">تم البيع</option>
+              <option value="Rented">تم الإيجار</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button 
+        type="submit" 
+        class="btn btn-submit"
+        [disabled]="propertyForm.invalid || isLoading"
+      >
+        <i class="fas" [ngClass]="isLoading ? 'fa-spinner fa-spin' : 'fa-plus-circle'"></i> 
+        {{ isLoading ? 'جاري الإضافة...' : 'إضافة العقار' }}
+      </button>
+      <a routerLink="/properties" class="btn btn-cancel">
+        <i class="fas fa-arrow-right"></i> العودة للقائمة
+      </a>
+    </div>
+
+  </form>
+</div>

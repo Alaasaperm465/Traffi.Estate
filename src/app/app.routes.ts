@@ -13,7 +13,7 @@ import { Favourit } from './component/favourit/favourit';
 export const routes: Routes = [
     { path: '', redirectTo: '/properties', pathMatch: 'full' },
     // { path: 'home', component: Home, title: 'Home Page' },
-    { path: 'addProperty', component: AddProperty, title: 'Add Property' },
+    { path: 'add-property', component: AddProperty, title: 'Add Property' },
     { path: 'login' , component:Login, title:'Login Page'},
     { path: 'message', component: Message, title: 'message Page'},
     { path: 'myProperties', component: MyProperties, title: ' My properties' },
