@@ -20,7 +20,13 @@ export default class Properties {
       location: 'Cairo, Egypt',
       type: 'sale',
       image: 'assets/images/property1.jpg',
-      sellerId: 101 
+      sellerId: 101 ,
+      Area:90,
+      pathRoomCount:1,
+      RoomsCount:3,
+      FinishLevel:"فاخر",
+      purpos:"للبيع",
+      status :"متاح",
     },
     {
       id: 2,
@@ -30,7 +36,13 @@ export default class Properties {
       location: 'Alexandria, Egypt',
       type: 'rent',
       image: 'assets/images/property2.jpg',
-      sellerId: 102
+      sellerId: 102,
+      Area:100,
+      pathRoomCount:1,
+      RoomsCount:3,
+      FinishLevel:"فاخر",
+      purpos:"للبيع",
+      status :"متاح",
     },
   ];
 }
